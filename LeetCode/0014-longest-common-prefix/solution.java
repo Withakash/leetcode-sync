@@ -3,10 +3,8 @@ class Solution {
 
         Arrays.sort(strs);
         int size = strs.length;
-        int l = strs[0].length();
         String pre = strs[0];
-        if(size==0) return "";
-        if(size==1) return pre;
+        int l = pre.length();
         String str = "";
         char cc;
       out:  for(int i = 0 ; i < l ; i++)
