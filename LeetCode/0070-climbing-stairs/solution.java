@@ -1,13 +1,8 @@
 class Solution {
     public int climbStairs(int n) {
-        return getFibbonaci(n);
-    }
-
-    static int getFibbonaci(int num)
-    {
-        int x = 0 ;
+                int x = 0 ;
         int y = 1 ;
-        for(int i = 1 ; i <= num ; i++)
+        for(int i = 1 ; i <= n ; i++)
         {
            y = x + y ;
            x = y - x;
@@ -15,4 +10,6 @@ class Solution {
         }
         return y;
     }
+
+
 }
