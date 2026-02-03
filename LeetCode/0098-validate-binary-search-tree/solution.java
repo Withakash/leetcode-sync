@@ -18,19 +18,20 @@ class Solution {
     List<Integer> res = new ArrayList<>();
     public boolean isValidBST(TreeNode root) {
         inorder(root);
-        long prev = Long.MIN_VALUE;
-        for(int x: res) {
-           if(prev >= x) return false;
 
+        System.out.println(res);
+        long prev = Long.MIN_VALUE;
+        for(int x: res){
+           if(prev >= x) return false;
            prev = x;
         }
-
+        
         return true;
     }
 
-    List<Integer> inorder(TreeNode root) {
+    public List<Integer> inorder(TreeNode root) {
         if(root == null) return res;
-
+        
         inorder(root.left);
         res.add(root.val);
         inorder(root.right);
