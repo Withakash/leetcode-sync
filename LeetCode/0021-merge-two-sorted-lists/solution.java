@@ -30,7 +30,7 @@ class Solution {
 
         if(list1 == null) curr.next = list2;
         else curr.next = list1;
-
+        
         return res.next;
     }
 }
