@@ -15,24 +15,26 @@
  */
 class Solution {
     public boolean isSymmetric(TreeNode root) {
-        if (root == null) return true;
+        if(root == null) return true;
 
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root.left);
-        queue.add(root.right);
+        Queue<TreeNode> que = new LinkedList<>();
+        que.add(root.left);
+        que.add(root.right);
 
-        while (!queue.isEmpty()) {
-            TreeNode t1 = queue.poll();
-            TreeNode t2 = queue.poll();
+        while(!que.isEmpty()) {
+            TreeNode first = que.poll();
+            TreeNode second = que.poll();
 
-            if (t1 == null && t2 == null) continue;
-            if (t1 == null || t2 == null) return false;
-            if (t1.val != t2.val) return false;
+            if(first == null && second == null) continue;
 
-            queue.add(t1.left);
-            queue.add(t2.right);
-            queue.add(t1.right);
-            queue.add(t2.left);
+            if(first == null || second == null) return false;
+            if(first.val != second.val) return false;
+
+            que.add(first.left);
+            que.add(second.right);
+
+            que.add(first.right);
+            que.add(second.left);
         }
 
         return true;
