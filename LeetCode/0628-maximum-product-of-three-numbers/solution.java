@@ -1,21 +1,22 @@
 class Solution {
     public int maximumProduct(int[] nums) {
-        // HashSet<Integer> hs = new HashSet<>();
-        PriorityQueue<Integer> pq1 = new PriorityQueue<>(Collections.reverseOrder());
-        PriorityQueue<Integer> pq2 = new PriorityQueue<>();
-        for(int n : nums) {
-           pq1.add(n);
-           pq2.add(n);
-    }
+      PriorityQueue<Integer> pqMax = new PriorityQueue<>(Collections.reverseOrder());
+      PriorityQueue<Integer> pqMin = new PriorityQueue<>();
 
-        System.out.println(pq1);
-        System.out.println(pq2);
-        int a = pq1.poll();
-        int b = pq1.poll();
-        int c = pq1.poll();
+      for(int x : nums) {
+        pqMax.add(x);
+        pqMin.add(x);
+       }
 
-        int x = pq2.poll();
-        int y = pq2.poll();
-        return Math.max(a*b*c , x*y*a);
+        int a = pqMax.poll();
+        int b = pqMax.poll();
+        int c = pqMax.poll();
+
+        int x = pqMin.poll();
+        int y = pqMin.poll();
+
+        
+        // System.out.println(pq);
+        return Math.max(a*b*c , a*x*y);
     }
 }
