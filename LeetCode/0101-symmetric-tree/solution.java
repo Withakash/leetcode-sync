@@ -26,15 +26,13 @@ class Solution {
             TreeNode second = que.poll();
 
             if(first == null && second == null) continue;
-
             if(first == null || second == null) return false;
-            if(first.val != second.val) return false;
+            if(first.val != second.val)  return false;
 
             que.add(first.left);
             que.add(second.right);
-
             que.add(first.right);
-            que.add(second.left);
+            que.add(second.left);       
         }
 
         return true;
