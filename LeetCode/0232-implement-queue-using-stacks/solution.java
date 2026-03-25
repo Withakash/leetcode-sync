@@ -1,10 +1,10 @@
 class MyQueue {
-
+ 
     Stack<Integer> in;
     Stack<Integer> out;
     public MyQueue() {
         in = new Stack<>();
-        out = new Stack<>();
+        out= new Stack<>();
     }
     
     public void push(int x) {
@@ -12,36 +12,37 @@ class MyQueue {
     }
     
     public int pop() {
-        shiftfvd();
-        int val = out.pop();
-        shiftbck();
-        return val;
+        shift_in_to_out();
+        int temp = out.pop();
+        shift_out_to_in();
+
+        return temp;
     }
     
     public int peek() {
-        shiftfvd();
-        int val = out.peek();
-        shiftbck();
-        return val;
-        
+        shift_in_to_out();
+        int temp = out.peek();
+        shift_out_to_in();
+
+        return temp;
     }
     
     public boolean empty() {
         return in.isEmpty();
-        
     }
-    public void shiftfvd() {
-        while(!in.isEmpty())
-        {
+    
+    public void shift_in_to_out(){
+        while(!in.isEmpty()){
             out.push(in.pop());
         }
     }
-        public void shiftbck() {
-        while(!out.isEmpty())
-        {
+
+    public void shift_out_to_in(){
+        while(!out.isEmpty()){
             in.push(out.pop());
         }
     }
+
 }
 
 /**
