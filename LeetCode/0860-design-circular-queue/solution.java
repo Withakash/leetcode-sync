@@ -1,47 +1,53 @@
 class MyCircularQueue {
-     int front, rear,capacity,size;
-     int arr[];
+
+    int[] arr;
+    int capacity, front, rear, size;
 
     public MyCircularQueue(int k) {
+
         capacity = k;
-        arr = new int[capacity];
         front = 0;
         rear = -1;
         size = 0;
+        arr = new int[capacity];
+
     }
-    
+
     public boolean enQueue(int value) {
-        if(isFull()) return false;
+        if (isFull())
+            return false;
 
         rear = (rear + 1) % capacity;
         arr[rear] = value;
         size++;
         return true;
-    }
-    
-    public boolean deQueue() {
-        if(isEmpty()) return false;
-          
-          front = (front + 1) % capacity;
-          size--;
-          return true;
 
     }
-    
+
+    public boolean deQueue() {
+        if (isEmpty())
+            return false;
+        front = (front + 1) % capacity;
+        size--;
+        return true;
+    }
+
     public int Front() {
-        if(isEmpty()) return -1;
+        if (isEmpty())
+            return -1;
         return arr[front];
     }
-    
+
     public int Rear() {
-      if(isEmpty()) return -1;
-      return arr[rear];
+        if (isEmpty())
+            return -1;
+        return arr[rear];
     }
-    
+
     public boolean isEmpty() {
         return size == 0;
     }
-    
+
     public boolean isFull() {
         return size == capacity;
     }
